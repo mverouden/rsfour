@@ -18,9 +18,11 @@
 #' a <- initialize(a,
 #'                 location = c(1.23, 10.5),
 #'                 velocity = c(5 * sqrt(2), 5 * sqrt(2)),
-#'                 active = TRUE)
+#'                 active = FALSE)
 #' validAgentObject(a)
 #' print(a)
+#' is.object(a)
+#' isS4(a)
 #'
 #' @export
 #' @import methods
@@ -63,7 +65,7 @@ Agent <- setClass(
 #' a <- initialize(a,
 #'                 location = c(1.23, 10.5),
 #'                 velocity = c(5 * sqrt(2), 5 * sqrt(2)),
-#'                 active = TRUE)
+#'                 active = FALSE)
 #' validAgentObject(a)
 #' print(a)
 #'
@@ -123,7 +125,7 @@ setMethod(f = "initialize",
 #' a <- initialize(a,
 #'                 location = c(1.23, 10.5),
 #'                 velocity = c(5 * sqrt(2), 5 * sqrt(2)),
-#'                 active = TRUE)
+#'                 active = FALSE)
 #' validAgentObject(a)
 #' print(a)
 validAgentObject <- function(object) {
