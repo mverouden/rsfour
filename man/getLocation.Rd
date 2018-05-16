@@ -10,5 +10,6 @@ getLocation(object)
 \item{object}{An object of class \linkS4class{Agent}}
 }
 \description{
-getLocation Generic
+Generic function definition for retreiving the location slot from an object
+of class \linkS4class{Agent}.
 }

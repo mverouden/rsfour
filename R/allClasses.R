@@ -2,8 +2,7 @@
 #' An S4 class to represent an agent.
 #'
 #' @slot location A numerical vector of length 2 specifying the x- and
-#'                y-position of the object of class \linkS4class{Agent}
-#'               [Default: c(0, 0)].
+#'                y-position of the object [Default: c(0, 0)].
 #' @slot velocity A numeric vector for specifying the object's velocity, where
 #'                the first value specifies the velocity in the x-direction and
 #'                the second in the y-direction [Default: c(0.0, 0.0)].

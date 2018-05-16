@@ -65,6 +65,9 @@ setMethod(f = "initialize",
 ### create a method to retreive (get) the value of the location slot
 #' getLocation Generic
 #'
+#' Generic function definition for retreiving the location slot from an object
+#' of class \linkS4class{Agent}.
+#'
 #' @param object An object of class \linkS4class{Agent}
 setGeneric(name = "getLocation",
            def = function(object) {
@@ -81,6 +84,9 @@ setMethod(f = "getLocation",
 
 ### create a method to retreive (get) the value of the velocity slot
 #' getVelocity Generic
+#'
+#' Generic function definition for retreiving the velocity slot from an object
+#' of class \linkS4class{Agent}.
 #'
 #' @param object An object of class \linkS4class{Agent}
 setGeneric(name = "getVelocity",

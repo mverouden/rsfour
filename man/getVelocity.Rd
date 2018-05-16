@@ -10,5 +10,6 @@ getVelocity(object)
 \item{object}{An object of class \linkS4class{Agent}}
 }
 \description{
-getVelocity Generic
+Generic function definition for retreiving the velocity slot from an object
+of class \linkS4class{Agent}.
 }
