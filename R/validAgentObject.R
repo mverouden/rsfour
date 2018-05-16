@@ -31,4 +31,5 @@ validAgentObject <- function(object) {
     return(TRUE)
   }
 }
+
 setValidity(Class = "Agent", method = validAgentObject)

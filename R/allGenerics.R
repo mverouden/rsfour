@@ -165,6 +165,9 @@ setMethod(f = "setVelocity",
 ### create a method to assign (set) the value of active
 #' setAcitve Generic
 #'
+#' Generic function to set the active slot of an object of class
+#' \linkS4class{Agent}.
+#'
 #' @param object An object of class \linkS4class{Agent}
 #' @param active A length-one logical vector indicating whether the object of
 #'               class \linkS4class{Agent} is active (TRUE) or not (FALSE)
@@ -180,6 +183,42 @@ setMethod(f = "setActive",
           definition = function(object, active) {
             object@active <- active
             validObject(object)
+            return(object)
+          }
+         )
+
+### RESET Methods Definitions ----
+### create a method to reset the velocity and the activity
+#' resetActivity Generic
+#'
+#' Generic function to reset the activity of an object of class
+#' \linkS4class{Agent}.
+#'
+#' @param object An object of class \linkS4class{Agent}
+#' @param value Either a length-one logical vector to reset the active slot of
+#'              the \code{\link{Agent-class}} object or a numerical vector of
+#'              length 2 to reset the velocity in the x- and y-direction of the
+#'              object of class \linkS4class{Agent}.
+setGeneric(name = "resetActivity",
+           def = function(object, value) {
+             standardGeneric("resetActivity")
+           }
+          )
+#' @describeIn resetActivity Reset the active slot to the specified value and reset the velocity slot to c(0, 0).
+setMethod(f = "resetActivity",
+          signature = c("Agent","logical"),
+          definition = function(object, value) {
+            object <- setActive(object, value)
+            object <- setVelocity(object, c(0.0, 0.0))
+            return(object)
+          }
+         )
+#' @describeIn resetActivity Reset the velocity slot to the specified values and reset the active slot to TRUE.
+setMethod(f = "resetActivity",
+          signature = c("Agent", "numeric"),
+          definition = function(object, value) {
+            object <- setActive(object, TRUE)
+            object <- setVelocity(object, value)
             return(object)
           }
          )

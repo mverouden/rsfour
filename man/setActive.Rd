@@ -14,5 +14,6 @@ class \linkS4class{Agent} is active (TRUE) or not (FALSE)
 [Default: TRUE].}
 }
 \description{
-setAcitve Generic
+Generic function to set the active slot of an object of class
+\linkS4class{Agent}.
 }
