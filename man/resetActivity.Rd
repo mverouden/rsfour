@@ -16,10 +16,13 @@ resetActivity(object, value)
 \arguments{
 \item{object}{An object of class \linkS4class{Agent}}
 
-\item{value}{Either a length-one logical vector to reset the active slot of
-the \code{\link{Agent-class}} object or a numerical vector of
+\item{value}{Possible values:\itemize{
+ \item a length-one logical vector to reset the active slot of
+the \code{\link{Agent-class}} object.
+ \item a numerical vector of
 length 2 to reset the velocity in the x- and y-direction of the
-object of class \linkS4class{Agent}.}
+object of class \linkS4class{Agent}.
+}}
 }
 \description{
 Generic function to reset the activity of an object of class

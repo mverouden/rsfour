@@ -36,14 +36,14 @@ setMethod(f = "initialize",
             if (length(location) == 0) {
               .Object@location <- c(0.0, 0.0)
             } else if (length(location) < 2 | length(location) > 2) {
-              stop("The loction argument should have two values.")
+              stop("The location argument should be length 2.")
             } else {
               .Object@location <- location
             }
             if (length(velocity) == 0) {
               .Object@velocity <- c(0.0, 0.0)
             } else if (length(velocity) < 2 | length(velocity) > 2) {
-              stop("The velocity argument should have two values.")
+              stop("The velocity argument should be length 2.")
             } else {
               .Object@velocity <- velocity
             }
@@ -75,6 +75,7 @@ setGeneric(name = "getLocation",
            }
           )
 #' @describeIn Agent Retreive the location slot of an object of class "Agent".
+#' @export
 setMethod(f = "getLocation",
           signature = "Agent",
           definition = function(object) {
@@ -95,6 +96,7 @@ setGeneric(name = "getVelocity",
            }
           )
 #' @describeIn Agent Retreive the velocity slot of an object of class "Agent".
+#' @export
 setMethod(f = "getVelocity",
           signature = "Agent",
           definition = function(object) {
@@ -112,6 +114,7 @@ setGeneric(name = "getActive",
            }
           )
 #' @describeIn Agent Retreive the active slot of an object of class "Agent".
+#' @export
 setMethod(f = "getActive",
           signature = "Agent",
           definition = function(object) {
@@ -133,6 +136,7 @@ setGeneric(name = "setLocation",
            }
           )
 #' @describeIn Agent Assign the location slot of an object of class "Agent".
+#' @export
 setMethod(f = "setLocation", signature = "Agent", definition = function(object, location) {
             object@location <- location
             validObject(object)
@@ -153,6 +157,7 @@ setGeneric(name = "setVelocity",
            }
           )
 #' @describeIn Agent Assign the velocity slot of an object of class "Agent".
+#' @export
 setMethod(f = "setVelocity",
           signature = "Agent",
           definition = function(object, velocity) {
@@ -178,6 +183,7 @@ setGeneric(name = "setActive",
            }
           )
 #' @describeIn Agent Assign the active slot of an object of class "Agent".
+#' @export
 setMethod(f = "setActive",
           signature = "Agent",
           definition = function(object, active) {
@@ -195,10 +201,15 @@ setMethod(f = "setActive",
 #' \linkS4class{Agent}.
 #'
 #' @param object An object of class \linkS4class{Agent}
-#' @param value Either a length-one logical vector to reset the active slot of
-#'              the \code{\link{Agent-class}} object or a numerical vector of
+#' @param value Possible values:\itemize{
+#'               \item a length-one logical vector to reset the active slot of
+#'              the \code{\link{Agent-class}} object.
+#'               \item a numerical vector of
 #'              length 2 to reset the velocity in the x- and y-direction of the
 #'              object of class \linkS4class{Agent}.
+#'              }
+#'
+#' @export
 setGeneric(name = "resetActivity",
            def = function(object, value) {
              standardGeneric("resetActivity")

@@ -29,6 +29,7 @@ a <- initialize(a,
                 active = FALSE)
 validAgentObject(a)
 print(a)
+
 }
 \seealso{
 \linkS4class{Agent}, \code{\link{Agent-class}},

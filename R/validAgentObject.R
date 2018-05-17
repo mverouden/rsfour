@@ -24,6 +24,8 @@
 #'                 active = FALSE)
 #' validAgentObject(a)
 #' print(a)
+#'
+#' @export
 validAgentObject <- function(object) {
   if (round(sum(object@velocity^2), digits = 1) > 100.0) {
     return("The velocity level is out of bounds.")
