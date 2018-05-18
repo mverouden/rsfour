@@ -54,7 +54,7 @@ setMethod(f = "initialize",
             } else {
               .Object@active <- active
             }
-            if (validAgentObject(.Object) == TRUE) {
+            if (validObject(.Object) == TRUE) {
               return(.Object)
             } else {
               stop("The velocity level is out of bounds.")

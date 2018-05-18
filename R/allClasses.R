@@ -1,4 +1,5 @@
 ### Define Classes ----
+### Create the base Agent class
 #' An S4 class to represent an agent.
 #'
 #' @slot location A numerical vector of length 2 specifying the x- and
@@ -42,4 +43,61 @@ Agent <- setClass(
     velocity = "numeric",
     active = "logical"
   )
+)
+
+### Create the Prey class to represent a prey animal
+#' An S4 class to represent a prey animal.
+#'
+#' @slot location A numerical vector of length 2 specifying the x- and
+#'                y-position of the object [Default: c(0, 0)].
+#' @slot velocity A numeric vector for specifying the object's velocity, where
+#'                the first value specifies the velocity in the x-direction and
+#'                the second in the y-direction [Default: c(0.0, 0.0)].
+#' @slot active A length-one logical vector indicating whether the object is
+#'              active [Default: TRUE].
+#'
+#' @export
+Prey <- setClass(
+  ## Set the name for the class
+  Class = "Prey",
+  ## Set the inheritance for this class
+  contains = "Agent"
+)
+
+### Create the Bobcat class to represent a smaller predator
+#' An S4 class to represent a smaller predator.
+#'
+#' @slot location A numerical vector of length 2 specifying the x- and
+#'                y-position of the object [Default: c(0, 0)].
+#' @slot velocity A numeric vector for specifying the object's velocity, where
+#'                the first value specifies the velocity in the x-direction and
+#'                the second in the y-direction [Default: c(0.0, 0.0)].
+#' @slot active A length-one logical vector indicating whether the object is
+#'              active [Default: TRUE].
+#'
+#' @export
+Bobcat <- setClass(
+  ## Set the name for the class
+  Class = "Bobcat",
+  ## Set the inheritance for this class
+  contains = "Agent"
+)
+
+### Create the Lynx class to represent a larger predator
+#' An S4 class to represent a larger predator.
+#'
+#' @slot location A numerical vector of length 2 specifying the x- and
+#'                y-position of the object [Default: c(0, 0)].
+#' @slot velocity A numeric vector for specifying the object's velocity, where
+#'                the first value specifies the velocity in the x-direction and
+#'                the second in the y-direction [Default: c(0.0, 0.0)].
+#' @slot active A length-one logical vector indicating whether the object is
+#'              active [Default: TRUE].
+#'
+#' @export
+Lynx <- setClass(
+  ## Set the name for the class
+  Class = "Lynx",
+  ## Set the inheritance for this class
+  contains = "Bobcat"
 )
