@@ -137,7 +137,8 @@ setGeneric(name = "setLocation",
           )
 #' @describeIn Agent Assign the location slot of an object of class "Agent".
 #' @export
-setMethod(f = "setLocation", signature = "Agent", definition = function(object, location) {
+setMethod(f = "setLocation", signature = "Agent",
+          definition = function(object, location) {
             object@location <- location
             validObject(object)
             return(object)
@@ -230,6 +231,67 @@ setMethod(f = "resetActivity",
           definition = function(object, value) {
             object <- setActive(object, TRUE)
             object <- setVelocity(object, value)
+            return(object)
+          }
+         )
+
+### MOVE Methods Definitions ----
+### create a method to move object of class Agent, Prey, Bobcat and Lynx
+#' move Generic
+#'
+#' Generic function to move an object of a defined class.
+#'
+#' @param object An object of a defined S4 class (\linkS4class{Agent},
+#'               \linkS4class{Prey}, \linkS4class{Bobcat}. or \linkS4class{Lynx}).
+#'
+#' @export
+setGeneric(name = "move",
+           def = function(object) {
+             standardGeneric("move")
+           }
+          )
+#' @describeIn move Move an object of class \linkS4class{Agent}.
+setMethod(f = "move",
+          signature = "Agent",
+          definition = function(object) {
+            print("Move this Agent dude")
+            object <- setVelocity(object, velocity = c(1, 2))
+            validObject(object)
+            return(object)
+          }
+         )
+#' @describeIn move Move an object of class \linkS4class{Prey}.
+setMethod(f = "move",
+          signature = "Prey",
+          definition = function(object) {
+            print("Check this Prey before moving this dude")
+            object <- callNextMethod(object)
+            print("Move this Prey dude")
+            validObject(object)
+            return(object)
+          }
+         )
+#' @describeIn move Move an object of class \linkS4class{Bobcat}.
+setMethod(f = "move",
+          signature = "Bobcat",
+          definition = function(object) {
+            print("Check this Bobcat before moving this dude")
+            object <- setLocation(object, location = c(2, 3))
+            object <- callNextMethod(object)
+            print("Move this Bobcat dude")
+            validObject(object)
+            return(object)
+          }
+         )
+#' @describeIn move Move an object of class \linkS4class{Bobcat}.
+setMethod(f = "move",
+          signature = "Lynx",
+          definition = function(object) {
+            print("Check this Lynx before moving this dude")
+            object <- setActive(object, active = FALSE)
+            object <- callNextMethod(object)
+            print("Move this Lynx dude")
+            validObject(object)
             return(object)
           }
          )
