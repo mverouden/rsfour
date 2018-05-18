@@ -20,7 +20,7 @@
 #' @examples
 #' hello()
 #'
-#' @export
+# #' @export
 # #' @exportPattern "^[[:alpha:]]+"
 hello <- function() {
   print("Hello, world!")
