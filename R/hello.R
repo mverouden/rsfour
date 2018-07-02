@@ -17,9 +17,9 @@
 #'
 #' @description Prints 'Hello, world!'.
 #'
-#' @examples
-#' hello()
-#'
+# #' @examples
+# #' hello()
+# #'
 # #' @export
 # #' @exportPattern "^[[:alpha:]]+"
 hello <- function() {
