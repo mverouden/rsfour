@@ -9,7 +9,3 @@ hello()
 \description{
 Prints 'Hello, world!'.
 }
-\examples{
-hello()
-
-}
