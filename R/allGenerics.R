@@ -62,6 +62,21 @@ setMethod(f = "initialize",
           })
 
 ### GET Methods Definitions ----
+### create a method to retreive (get) the value of a slot by name
+#' Retrieve-method for slots
+#'
+#' Extract parts of an object of class Agent by slot name.
+#'
+#' @param x object of class "Agent"
+#' @param i character, describing the slotname to retreive
+setMethod(
+  f = "[",
+  signature = c(x = "Agent", i = "character"),
+  definition = function(x, i) {
+    if (i == "location") return(x@location)
+    if (i == "velocity") return(x@velocity)
+    if (i == "active") return(x@active)
+  })
 ### create a method to retreive (get) the value of the location slot
 #' getLocation Generic
 #'
@@ -123,6 +138,34 @@ setMethod(f = "getActive",
          )
 
 ### SET Methods Definitions ----
+### create a method to assign (set) the value of a slot by name
+#' Replace-method for slots
+#'
+#' Replace values of slots in an object of class Agent by name
+#'
+#' @param x object of class "Agent"
+#' @param i character, describing the slotname to be replace with a value
+#' @param value ANY, value for the slotname specified by i to be replaced
+setReplaceMethod(
+  f = "[",
+  signature = c(x = "Agent", i = "character", value = "ANY"),
+  definition = function(x, i, value) {
+    if (i == "location") {
+      x@location <- value
+      validObject(x)
+      return(x)
+    }
+    if (i == "velocity") {
+      x@velocity <- value
+      validObject(x)
+      return(x)
+    }
+    if (i == "active")  {
+      x@active <- value
+      validObject(x)
+      return(x)
+    }
+  })
 ### create a method to assign (set) the value of the location
 #' setLocation Generic
 #'
